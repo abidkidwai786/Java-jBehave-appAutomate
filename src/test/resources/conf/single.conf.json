@@ -1,15 +1,18 @@
 {
-  "server": "hub-cloud.browserstack.com",
-  "user": "BROWSERSTACK_USERNAME",
-  "key": "BROWSERSTACK_ACCESS_KEY",
+  "server": "mobile-hub.lambdatest.com",
+  "user": "abidk",
+  "key": "5R3BqsBDkAnxCrmes5uYLZyP4v9894YuQtokNDqSUduCghekRH",
 
   "capabilities": {
-    "build": "jbehave-browserstack",
-    "name": "single_test",
-    "browserstack.debug": true
+    "build": "jbehave-LambdaTest-AppAutomate-Single",
+    "name": "Single Test 1"
   },
 
-  "environments": [{
-    "browser": "chrome"
-  }]
+  "environments": [
+    {
+    "platformName": "android",
+    "deviceName": "Galaxy S21 5G",
+    "platformVersion": "11"
+    }
+  ]
 }

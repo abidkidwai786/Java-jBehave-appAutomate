@@ -1,12 +1,6 @@
-package com.browserstack;
-import com.browserstack.local.Local;
-
-import java.io.File;
+package com.lambdatest;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,10 +27,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 
 @RunWith(Parameterized.class)
-public class BrowserStackJBehaveRunner {
+public class LambdaTestJBehaveRunner {
 
     public WebDriver driver;
-    private Local l;
+   // private Local l;
 
     private static JSONObject config;
 
@@ -65,6 +59,9 @@ public class BrowserStackJBehaveRunner {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
+        capabilities.setCapability("isRealMobile", true);
+        capabilities.setCapability("app","lt://APP10011121654105462192905");
+
         Map<String, String> envCapabilities = (Map<String, String>) envs.get(taskID);
         Iterator it = envCapabilities.entrySet().iterator();
         while (it.hasNext()) {
@@ -81,22 +78,16 @@ public class BrowserStackJBehaveRunner {
             }
         }
 
-        String username = System.getenv("BROWSERSTACK_USERNAME");
+        String username = System.getenv("LT_USERNAME");
         if(username == null) {
             username = (String) config.get("user");
         }
 
-        String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+        String accessKey = System.getenv("LT_ACCESS_KEY");
         if(accessKey == null) {
             accessKey = (String) config.get("key");
         }
 
-        if(capabilities.getCapability("browserstack.local") != null && capabilities.getCapability("browserstack.local") == "true"){
-            l = new Local();
-            Map<String, String> options = new HashMap<String, String>();
-            options.put("key", accessKey);
-            l.start(options);
-        }
 
         driver = new RemoteWebDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
     }
@@ -104,7 +95,6 @@ public class BrowserStackJBehaveRunner {
     @After
     public void tearDown() throws Exception {
         driver.quit();
-        if(l != null) l.stop();
     }
 
     @Test

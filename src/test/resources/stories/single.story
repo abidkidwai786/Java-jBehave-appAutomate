@@ -1,5 +1,8 @@
-Scenario: Google's Search Functionality
+Scenario: Proverbial App scenario
 
-When I type query as "BrowserStack"
-Then I submit
-Then I should see title "BrowserStack - Google Search"
+Given user is on the App home page
+When click on color element
+Then click on text element
+Then click on notification element
+Then click on toast element
+Then click on geolocation element

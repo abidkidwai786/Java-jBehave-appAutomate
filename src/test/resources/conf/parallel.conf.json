@@ -1,21 +1,28 @@
 {
-  "server": "hub-cloud.browserstack.com",
-  "user": "BROWSERSTACK_USERNAME",
-  "key": "BROWSERSTACK_ACCESS_KEY",
+  "server": "mobile-hub.lambdatest.com",
+  "user": "abidk",
+  "key": "5R3BqsBDkAnxCrmes5uYLZyP4v9894YuQtokNDqSUduCghekRH",
 
   "capabilities": {
-    "build": "jbehave-browserstack",
-    "name": "parallel_test",
-    "browserstack.debug": true
+    "build": "jbehave-LambdaTest-AppAutomate-Parallel",
+    "name": "Parallel Test 1"
   },
 
-  "environments": [{
-    "browser": "chrome"
-  },{
-    "browser": "firefox"
-  },{
-    "browser": "safari"
-  },{
-    "browser": "internet explorer"
-  }]
+  "environments": [
+    {
+      "platformName": "android",
+      "deviceName": "Galaxy S21 5G",
+      "platformVersion": "11"
+    },
+    {
+      "platformName": "android",
+      "deviceName": "OnePlus 10 Pro",
+      "platformVersion": "12"
+    },
+    {
+      "platformName": "android",
+      "deviceName": "Pixel 3a",
+      "platformVersion": "10"
+    }
+  ]
 }
