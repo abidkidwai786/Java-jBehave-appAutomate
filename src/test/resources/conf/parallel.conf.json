@@ -1,7 +1,7 @@
 {
   "server": "mobile-hub.lambdatest.com",
-  "user": "abidk",
-  "key": "5R3BqsBDkAnxCrmes5uYLZyP4v9894YuQtokNDqSUduCghekRH",
+  "user": "user_name",
+  "key": "access_key",
 
   "capabilities": {
     "build": "jbehave-LambdaTest-AppAutomate-Parallel",
